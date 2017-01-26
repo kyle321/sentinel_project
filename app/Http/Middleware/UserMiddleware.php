@@ -2,10 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use Cartalyst\Sentinel\Native\Facades\Sentinel;
 use Closure;
-use Sentinel;
 
-class AdminMiddleware
+class UserMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,9 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Sentinel::check() && Sentinel::getUser()->roles()->first()->slug=='manager')
+        if(Sentinel::check())
         return $next($request);
         else
-            return redirect('/');
+            return redirect('/login');
     }
 }

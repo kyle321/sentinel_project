@@ -3,6 +3,7 @@
 @section('content')
 @include('layouts.nav')
 
+
 <div class="container">
 
 	<div class="col-md-6 col-md-offset-2">

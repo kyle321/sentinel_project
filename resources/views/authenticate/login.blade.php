@@ -5,6 +5,16 @@
 <div class="container">
 
 	<div class="col-md-6 col-md-offset-2">
+		@if(session('success'))
+			<div class="alert alert-success">
+				{{session('success')}}
+			</div>
+		@endif
+			@if(session('error'))
+			<div class="alert alert-danger">
+				{{session('error')}}
+			</div>
+		@endif
 	
 		<div class="panel panel-default">
 			 <div class="panel-heading text-center"><h3>login here...</h3></div>
@@ -27,6 +37,7 @@
 						  <input type="submit" class="btn btn-success btn-block" value="Login">
 						</div>
 				</form>
+				 <a href="/forgot-password">forgot password</a>
 				</div>
 			</div>
 		</div>

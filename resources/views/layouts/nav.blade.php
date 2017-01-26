@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     @if(!Sentinel::check())
       <ul class="nav navbar-nav">
-      
+        <li><a href="/">Home</a></li>
         <li class="active"><a href="/register">Register <span class="sr-only">(current)</span></a></li>
         <li>
         <a href="/login">Login</a>
@@ -25,17 +25,16 @@
       </ul>
       @else
       <ul class="nav navbar-nav navbar-right">
-      <h4>Hello, {{Sentinel::getUser()->first_name}}</h4>
-        <li>
-        <form action="/logout" method="POST" id="logout-form">
-        {{csrf_field()}}
-        <a href="#" onClick="document.getElementById('logout-form').submit()">Logout</a>
-        </form>
-        </li>
-        <li>
-          
+        <li><h4></h4></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MR, {{Sentinel::getUser()->first_name}} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
         </li>
       </ul>
+
       @endif
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
