@@ -3,6 +3,6 @@
 
 @section('content')
 
-@include('layouts.nav')
+@include('includes.nav')
 
 @stop
