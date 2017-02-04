@@ -1,47 +1,49 @@
 @extends('layouts.master')
 
+@section('title','|LOGIN')
+
 @section('content')
 @include('layouts.nav')
-<div class="container">
 
-	<div class="col-md-6 col-md-offset-2">
-		@if(session('success'))
-			<div class="alert alert-success">
-				{{session('success')}}
-			</div>
-		@endif
-			@if(session('error'))
-			<div class="alert alert-danger">
-				{{session('error')}}
-			</div>
-		@endif
-	
-		<div class="panel panel-default">
-			 <div class="panel-heading text-center"><h3>login here...</h3></div>
-			 <div class="panel-body">
-				 <form action="/login" method="POST">
-					<div class="form-group">
-						<div class="input-group">
-						  <span class="input-group-addon" id="basic-addon1">@</span>
-						  <input type="email" class="form-control" name="email" placeholder="Email" aria-describedby="basic-addon1">
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="input-group">
-						  <span class="input-group-addon" id="basic-addon1"></span>
-						  <input type="password" class="form-control" name="password" placeholder="password" aria-describedby="basic-addon1">
-						</div>
-					</div>
-					<div class="form-group">
+<div class="row">
+	<div class="col-md-5 col-md-offset-3">
+		@include('includes.error')
+		<div class="panel panel-info">
+			<div class="panel-heading text-center ">LOGIN IN HERE</div>
+			<div class="panel-body">
+				<form action="/login" method="POST" class="form-horizontal">
 					{{csrf_field()}}
-						  <input type="submit" class="btn btn-success btn-block" value="Login">
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" name="email" id="inputEmail3" placeholder="Email" >
 						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="inputPassword3" name="password" placeholder="Password" >
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<div class="checkbox">
+								<label>
+									<input type="checkbox"> Remember me
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-info btn-block">Sign in</button>
+						</div>
+					</div>
 				</form>
-				 <a href="/forgot-password">forgot password</a>
-				</div>
 			</div>
+			<div class="panel-footer text-center">***all fields required</div>
 		</div>
+	</div>
 </div>
 
-
-@stop
+@endsection

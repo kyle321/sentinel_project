@@ -7,6 +7,7 @@ use Sentinel;
 use Activation;
 use App\User;
 use Mail;
+use Session;
 
 
 class RegisterController extends Controller
@@ -22,12 +23,18 @@ class RegisterController extends Controller
     		'first_name'=>'required|min:4',
     		'last_name'=>'required',
     		'password'=>'required|min:4']);
-    	$user=Sentinel::register($request->all());
-		$activation=Activation::create($user);
-		$role=Sentinel::findRoleBySlug('user');
-		$role->users()->attach($user);
-		$this->sendEmail($user, $activation->code);
-    	return redirect('/home');
+		if($user=Sentinel::register($request->all())){
+			$activation=Activation::create($user);
+			$role=Sentinel::findRoleBySlug('user');
+			$role->users()->attach($user);
+			$this->sendEmail($user, $activation->code);
+			Session::flash('success','thanks for registering****');
+			return redirect('/home');
+		}else{
+			Session::flash('error','check your credentials and try again');
+			return redirect()->back();
+		}
+
     }
 	private function sendEmail($user, $code)
 	{

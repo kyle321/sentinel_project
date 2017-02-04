@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Sentinel;
 
 use Catalyst\Sentinel\Checkpoints\ThrottlingException;
+use Session;
 class LoginController extends Controller
 {
     public function login()
@@ -19,9 +20,11 @@ class LoginController extends Controller
     		'password'=>'required']);
         try{
             if(Sentinel::authenticate($request->all())){
+                Session::flash('success','thanks for logging in****');
                 return redirect('/home');
             }else{
-                return redirect()->back()->with(['error'=>"wrong user details"]);
+                Session::flash('error','check your credentials and try again');
+                return redirect()->back();
             }
 
         }catch(ThrottlingException $e){
@@ -29,6 +32,8 @@ class LoginController extends Controller
             return redirect()->back()->with(['error'=>"you are banned for $delay seconds"]);
         }catch(NotActivatedException $e){
             return redirect()->back()->with(['error'=>'your account is not activated']);
+
+
         }
 
 

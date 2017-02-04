@@ -5,8 +5,20 @@
 @include('layouts.nav')
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <h1>site under construction</h1>
+        <div class="col-md-6">
+
+                @foreach($posts as $post)
+                    <h3>{{$post->title}}</h3>
+                    <h5>{{$post->post}}</h5>
+                    <hr>
+                @endforeach
+
+
+        </div>
+        <div class="col-md-4 col-md-offset-1">
+            <h4> Make your Donation </h4>
+            <a href="#"><img src="{{url('images/paypal.png')}}" height="80px" width="200px" alt=""></a>
+
         </div>
     </div>
 </div>

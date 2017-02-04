@@ -1,56 +1,58 @@
 @extends('layouts.master')
 
+@section('title','|REGISTER')
+
 @section('content')
-@include('layouts.nav')
+	@include('layouts.nav')
 
-
-<div class="container">
-
-	<div class="col-md-6 col-md-offset-2">
-	
-		<div class="panel panel-default">
-			 <div class="panel-heading text-center"><h3>register here...</h3></div>
-			 <div class="panel-body">
-				 <form action="/register" method="POST">
-					<div class="form-group">
-						<div class="input-group">
-						  <span class="input-group-addon" id="basic-addon1">@</span>
-						  <input type="email" class="form-control" name="email" placeholder="Email" aria-describedby="basic-addon1">
+	<div class="row">
+		<div class="col-md-5 col-md-offset-3">
+			@include('includes.error')
+			<div class="panel panel-info">
+				<div class="panel-heading text-center ">REGISTER HERE</div>
+				<div class="panel-body">
+					<form action="/register" method="POST" class="form-horizontal">
+						{{csrf_field()}}
+						<div class="form-group">
+							<label for="first_name" class="col-sm-2 control-label">First_name</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="first_name" id="first_name" placeholder="first_name" >
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<div class="input-group">
-						  <span class="input-group-addon" id="basic-addon1"></span>
-						  <input type="text" class="form-control" name="first_name" placeholder="first_name" aria-describedby="basic-addon1">
+						<div class="form-group">
+							<label for="last_name" class="col-sm-2 control-label">Last_name</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="last_name" id="last_name" placeholder="last_name" >
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<div class="input-group">
-						  <span class="input-group-addon" id="basic-addon1"></span>
-						  <input type="text" class="form-control" name="last_name" placeholder="last_name" aria-describedby="basic-addon1">
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+							<div class="col-sm-10">
+								<input type="email" class="form-control" name="email" id="inputEmail3" placeholder="Email" >
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<div class="input-group">
-						  <span class="input-group-addon" id="basic-addon1"></span>
-						  <input type="password" class="form-control" name="password" placeholder="password" aria-describedby="basic-addon1">
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control" id="inputPassword3" name="password" placeholder="Password" >
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<div class="input-group">
-						  <span class="input-group-addon" id="basic-addon1"></span>
-						  <input type="password" class="form-control" name="password_confirmation" placeholder="password_confirmation" aria-describedby="basic-addon1">
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Password Confirmation</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="password_confirmation" >
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-					{{csrf_field()}}
-						  <input type="submit" class="btn btn-success btn-block" value="Register">
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-info btn-block">Register</button>
+							</div>
 						</div>
-				</form>
+					</form>
 				</div>
+				<div class="panel-footer text-center">***all fields required</div>
 			</div>
 		</div>
-</div>
+	</div>
 
-
-@stop
+@endsection
