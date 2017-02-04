@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Post;
 
 class PostController extends Controller
 {
@@ -45,7 +46,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $posts=Post::where('id',$id);
+        return view('posts.show')->with('posts',$posts);
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'HomeController@welcome');
+route::get('/post/{id}','PostController@show');
 
 Route::group(['middleware'=>'visitor'], function(){
     Route::get('/register','RegisterController@register');
