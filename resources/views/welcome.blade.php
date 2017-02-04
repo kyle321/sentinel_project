@@ -9,7 +9,8 @@
 
                 @foreach($posts as $post)
                      <h3>{{$post->title}}</h3>
-                    <a href="/post/{id}"><h5>{{$post->post}}</h5></a>
+                    <h5>{{$post->post}}</h5>
+                    <a href="/post/{{$post->id}}">Read More........</a>
                     <hr>
                 @endforeach
 
