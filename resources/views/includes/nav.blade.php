@@ -24,12 +24,15 @@
 
       </ul>
       @else
+      <ul class="nav navbar-nav">
+        <li><a href="/">Read Post</a></li>
+        <li><a href="/create">Create Post</a></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><h4></h4></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MR, {{Sentinel::getUser()->first_name}} <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MR, {{Sentinel::getUser()->last_name}} <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Profile</a></li>
+            <li><a href="/profile">Profile</a></li>
             <li><a href="/logout">Logout</a></li>
           </ul>
         </li>

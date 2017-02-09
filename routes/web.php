@@ -3,6 +3,10 @@
 Route::get('/', 'HomeController@welcome');
 route::get('/post/{id}','PostController@show');
 route::get('/','PostController@index');
+route::get('/create','PostController@create');
+route::post('/create','PostController@store');
+route::get('/profile','ProfileController@profile');
+route::post('/profile','ProfileController@postProfile');
 
 Route::group(['middleware'=>'visitor'], function(){
     Route::get('/register','RegisterController@register');
