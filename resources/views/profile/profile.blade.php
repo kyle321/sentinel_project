@@ -2,45 +2,53 @@
 @section('title','|edit profile')
 
 @section('content')
-	
-	<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-info">
-				<div class="panel-heading text-center ">Update your profile</div>
-				<div class="panel-body">
-					<form action="/create" method="POST" class="form-inline" enctype="multipart/form-data">
-						{{csrf_field()}}
-						<div class="row">
-					<div class="col-md-12">
-						<img src="">
-					</div>
-				</div>
-					<div class="row">
-					
-						<div class="form-group">
-							<label for="first_name" class="col-sm-2 control-label">First_Name</label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" name="title" value="{{Sentinel::getUser()->first_name}}" id="title" placeholder="Title" >
+	<div class="well well-lg">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-2">
+				<div class="panel panel-info">
+					<div class="panel-heading text-center ">Update your profile</div>
+					<div class="panel-body">
+						<form action="/profile" method="POST" class="form-inline" enctype="multipart/form-data">
+								{{csrf_field()}}
+							<div class="row">
+								<div class="col-md-12">
+									<img src="/images/avatar/{{Sentinel::getUser()->avatar}}" style="width:150px; height:150px; border-radius: 50%; margin-left: 25px; ">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label for="first_name" class="col-sm-2 control-label">First_Name</label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" name="title" value="{{Sentinel::getUser()->first_name}}" id="title" placeholder="Title" >
+							<div class="row">
+								<div class="col-sm-4 col-sm-offset-1">
+									<div class="form-group">
+									  <label for="exampleInputName2">First_Name</label>
+									  <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe" name="first_name" value="{{Sentinel::getUser()->first_name}}">
+									</div>
+									<div class="form-group">
+									  <label for="exampleInputName2">Last_Name</label>
+									  <input type="text" class="form-control" name="last_name" id="exampleInputName2" placeholder="Jane Doe" value="{{Sentinel::getUser()->last_name}}">
+									</div>
+								</div>
+								<div class="col-sm-4">
+								<div class="form-group">
+								  <label for="exampleInputName2">Email</label>
+								  <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe" name="email" value="{{Sentinel::getUser()->email}}">
+								</div>
+								<div class="form-group">
+									  <label for="exampleInputName2">profile pic</label>
+									  <input type="file" name="avatar">
+								</div>
+									
+								</div>
+								<div class="row">
+									<div class="col-sm-4 col-sm-offset-3">
+										<button class="btn btn-success btn-block" style="margin-top:20px;">Update info</button>
+									</div>
+								</div>
+								
 							</div>
-						</div>
+						</form>
 					</div>
-					<div class="row">
-						<div class="col-md-4">
-						</div>
-						<div class="col-md-2">
-							<button class="btn btn-info">Update</button>
-						</div>
-					</div>
-					</form>
 				</div>
 			</div>
+			
 		</div>
-		
 	</div>
 @endsection
