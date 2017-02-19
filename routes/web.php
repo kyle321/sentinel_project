@@ -6,7 +6,7 @@ route::get('/','PostController@index');
 route::get('/create','PostController@create');
 route::post('/create','PostController@store');
 route::get('/profile','ProfileController@profile');
-route::post('/profile','ProfileController@postProfile');
+route::post('/profile/{id}','ProfileController@postProfile');
 
 Route::group(['middleware'=>'visitor'], function(){
     Route::get('/register','RegisterController@register');

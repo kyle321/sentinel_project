@@ -6,12 +6,13 @@
 		<div class="row">
 			<div class="col-md-6 col-md-offset-2">
 				<div class="panel panel-info">
+				@include('includes.error')
 					<div class="panel-heading text-center ">Update your profile</div>
 					<div class="panel-body">
-						<form action="/profile" method="POST" class="form-inline" enctype="multipart/form-data">
+						<form action="/profile/{{Sentinel::getUser()->id}}" method="POST" class="form-inline" enctype="multipart/form-data">
 								{{csrf_field()}}
 							<div class="row">
-								<div class="col-md-12">
+								<div class="col-md-6 col-md-offset-3">
 									<img src="/images/avatar/{{Sentinel::getUser()->avatar}}" style="width:150px; height:150px; border-radius: 50%; margin-left: 25px; ">
 								</div>
 							</div>
@@ -33,13 +34,16 @@
 								</div>
 								<div class="form-group">
 									  <label for="exampleInputName2">profile pic</label>
-									  <input type="file" name="avatar">
+									  <input type="file" name="avatar" value="{{Sentinel::getUser()->avatar}}">
 								</div>
 									
 								</div>
 								<div class="row">
-									<div class="col-sm-4 col-sm-offset-3">
-										<button class="btn btn-success btn-block" style="margin-top:20px;">Update info</button>
+									<div class="col-sm-4 col-md-offset-3">
+										<button class="btn btn-success" style="margin-top:20px;">Update info</button>
+									</div>
+									<div class="col-sm-4">
+										<button class="btn btn-success" style="margin-top:20px;"><a href="">BACK</a></button>
 									</div>
 								</div>
 								
