@@ -43,7 +43,7 @@
 										<button class="btn btn-success" style="margin-top:20px;">Update info</button>
 									</div>
 									<div class="col-sm-4">
-										<button class="btn btn-success" style="margin-top:20px;"><a href="">BACK</a></button>
+										<button class="btn btn-success" style="margin-top:20px;"><a href="/">BACK</a></button>
 									</div>
 								</div>
 								
